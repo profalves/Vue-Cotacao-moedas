@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Cotacao from "./components/HelloWorld";
+import Cotacao from "./components/Cotacao";
 
 export default {
   name: "App",
