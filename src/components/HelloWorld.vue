@@ -1,15 +1,17 @@
 <template>
   <div class="hello">
     <div v-for="(item, index) in list" :key="index">
-      <h2>{{item.name}}</h2>
-      <h4>Compra: {{item.bid}}</h4> 
-      <h4>Venda: {{item.ask}}</h4>
-      <div>
-        <strong>Alta:</strong> {{item.high}} | 
-        <strong>Baixa:</strong> {{item.low}} | 
-        <strong>Variação:</strong> {{item.varBid}} ({{item.pctChange}} %)
+      <div class="card">
+        <h2>{{item.name}}</h2>
+        <h4>Compra: {{item.bid}}</h4> 
+        <h4>Venda: {{item.ask}}</h4>
+        <div>
+          <strong>Alta:</strong> {{item.high}} | 
+          <strong>Baixa:</strong> {{item.low}} | 
+          <strong>Variação:</strong> {{item.varBid}} ({{item.pctChange}} %)
+        </div>
+        <p>{{item.create_date}}</p>
       </div>
-      <p>{{item.create_date}}</p>
     </div>
   </div>
 </template>
@@ -17,7 +19,7 @@
 <script>
 import axios from 'axios';
 export default {
-  name: "HelloWorld",
+  name: "Cotacao",
   data() {
     return {
       list: []
@@ -40,18 +42,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.card {
+  border: 1px solid #000
 }
 </style>
