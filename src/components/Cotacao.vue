@@ -2,18 +2,30 @@
   <div class="hello">
     <div class="container" v-for="(item, index) in list" :key="index">
       <div class="card">
-        <h2>{{item.name}}</h2>
-        <h4>Compra: {{item.bid}}</h4>
-        <h4>Venda: {{item.ask}}</h4>
+        <h2>{{ item.name }}</h2>
+        <h4>Compra: {{ item.bid }}</h4>
+        <h4>Venda: {{ item.ask }}</h4>
         <div>
           <strong>Alta:</strong>
-          {{item.high}} |
+          {{ item.high }} |
           <strong>Baixa:</strong>
-          {{item.low}} |
-          <strong>Variação:</strong>
-          {{item.varBid}} ({{item.pctChange}} %)
+          {{ item.low }} |
+          <strong>Variação: </strong>
+          <font-awesome-icon
+            :icon="
+              item.varBid.substring(0, 1) === '0'
+                ? 'level-up-alt'
+                : 'level-down-alt'
+            "
+            :style="
+              item.varBid.substring(0, 1) === '0'
+                ? { color: 'green' }
+                : { color: 'red' }
+            "
+          />
+          {{ item.varBid }} ({{ item.pctChange }} %)
         </div>
-        <p>{{item.create_date}}</p>
+        <p>{{ item.create_date }}</p>
       </div>
     </div>
   </div>
@@ -63,6 +75,7 @@ export default {
   width: 30vw;
   height: 270px;
 }
+
 @media (max-width: 700px) {
   .card {
     width: 85vw;
